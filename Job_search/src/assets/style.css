@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0.3em;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.job {
+    background-color: #cccccc;
+    width: 27em;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+    align-items: center;
+}
