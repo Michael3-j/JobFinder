@@ -1,9 +1,13 @@
 import JobList from "./JobList";
+import WatchList from "./components/WatchList";
+import { useState } from "react";
 
 function App() {
-  return (
+  const [watchList, setWatchList] = useState([])
+  return ( 
     <>
-     <JobList />
+     <WatchList watchList={watchList} setWatchList={setWatchList}/>
+     <JobList setWatchList={setWatchList}/>
     </>
   )
 }

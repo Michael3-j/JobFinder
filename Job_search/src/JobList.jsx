@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react"
-export default function JobList () {
+export default function JobList ({setWatchList}) {
     const [jobs, setJobs] = useState([])
-    const [watchList, setWatchList] = useState([])
+    
 
     useEffect(() => {
         fetch("https://remoteok.com/api")
@@ -11,7 +11,8 @@ export default function JobList () {
 
     const jobList = jobs.slice(1).map(job => {
         return (
-            <div key={ job.id } className="job">
+            <div>
+                <div key={ job.id } className="job">
                 <img
                     src={ job.company_logo }
                     alt="logo"
@@ -28,16 +29,12 @@ export default function JobList () {
                     .map(tag => <p key={tag}>{ tag },</p>)    
                 }</div>
                 <p>Find out more <a href={ job.url}>Here!</a></p>
-                <button className="button" onClick={() => onWatch(job)}>Watch</button>
-
+                <button className="button" onClick={() => setWatchList((prevList)=>[...prevList,job])}>Watchlist➕</button>
             </div>
+            </div>
+            
         )
     })
-
-    function onWatch (job) {
-        setWatchList(watched => [...watched, job ])
-        console.log(watchList)
-    }
 
     
 
