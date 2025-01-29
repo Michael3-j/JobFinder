@@ -13,26 +13,22 @@ export default function JobList () {
         return (
             <div key={ job.id } className="job">
                 <img
-                    className="job-logo"
                     src={ job.company_logo }
                     alt="logo"
-                    width='60px'
+                    className="job-logo"
                 />
-                <p>Company: { job.company }</p>
-                <p>Date: { job.date }</p>
-                <p>Position: { job.position }</p>
-                <p>{ job.location !== "" ? `Location: ${job.location}` : null }</p>
+                <p className="company">{ job.company }</p>
+                <p className="location">{ job.location !== "" ? `${job.location}` : null }</p>
+                <p className="position">{ job.position }</p>
                 <div className="salary">
                     <p>Salary: Kshs { job.salary_max } - Kshs { job.salary_min }</p>
                 </div>
-                <p>Tags</p>
+                <p className="date">Date: { job.date }</p>
                 <div className="tags">{ job.tags 
-                    .map(tag => <p key={tag}>{ tag } ,</p>)    
+                    .map(tag => <p key={tag}>{ tag },</p>)    
                 }</div>
                 <p>Find out more <a href={ job.url}>Here!</a></p>
-                <div className="buttons">
-                    <button onClick={() => onWatch(job)}>Watch</button>
-                </div>
+                <button className="button" onClick={() => onWatch(job)}>Watch</button>
 
             </div>
         )
