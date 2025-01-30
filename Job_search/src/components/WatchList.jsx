@@ -1,6 +1,6 @@
 import React from "react";
 
-function WatchList({watchList, setWatchList}){
+function WatchList({watchList, setWatchList, openApplicationForm}){
     const removeFromWatchlist = (jobId) => {
         setWatchList((prevList) => prevList.filter((job) => job.id !== jobId));
       };

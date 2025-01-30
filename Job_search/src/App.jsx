@@ -4,6 +4,7 @@ import { useState } from "react";
 
 function App() {
   const [watchList, setWatchList] = useState([])
+  const openApplicationForm = (job) =>{}
   return ( 
     <>
      <WatchList watchList={watchList} setWatchList={setWatchList}/>
