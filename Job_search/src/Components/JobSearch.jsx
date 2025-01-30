@@ -1,19 +1,20 @@
 import React, { useState } from "react";
  
-function SearchJobs(onsearch){
+
+
+function JobSearch(){
 
 const [currentSearch, setCurrentSearch] = useState("");
 
 function HandleSubmit(event){
-
     event.preventDefault();
-
-    onsearch(currentSearch);
+    
+   
 
 };
 
 return (
- <form className="searchtab" onSubmit={HandleSubmit}>
+ <label className="searchtab" onSubmit={HandleSubmit}>
      <input
      type="text"
      id="search"
@@ -24,9 +25,7 @@ return (
     
     <button type="submit">🔍Search🔎️</button>
 
-
- </form>
+ </label>
 );
 }
-
 export default JobSearch;
