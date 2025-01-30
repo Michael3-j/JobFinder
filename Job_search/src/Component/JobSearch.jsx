@@ -18,7 +18,27 @@ return (
      <input
      type="text"
      id="search"
-     placeholder="search Jobs"
+     placeholder="search Company"
+     value={currentSearch}
+     onChange={(e)=>setCurrentSearch(e.target.value)}
+     />
+    
+    <button type="submit">🔍Search🔎️</button>
+
+    <input
+     type="text"
+     id="search"
+     placeholder="search Position "
+     value={currentSearch}
+     onChange={(e)=>setCurrentSearch(e.target.value)}
+     />
+    
+    <button type="submit">🔍Search🔎️</button>
+
+    <input
+     type="text"
+     id="search"
+     placeholder="search Location"
      value={currentSearch}
      onChange={(e)=>setCurrentSearch(e.target.value)}
      />
