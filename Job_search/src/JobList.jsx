@@ -1,4 +1,5 @@
 import { useEffect,useState } from "react"
+import JobSearch from "./Component/JobSearch"
 
 
 export default function JobList ({setWatchList}) {
@@ -54,36 +55,8 @@ export default function JobList ({setWatchList}) {
 
     return (
         <>
-            <label>
-                    <input 
-                    id="search-input"
-                      name="search"
-                      type="text"
-                      placeholder="position..."
-                      value={searchPosition}
-                      onChange={handleSearchPosition}
-                    />
-            </label>
-            <label>
-                    <input 
-                    id="search-input"
-                      name="search"
-                      type="text"
-                      placeholder="company..."
-                      value={searchCompany}
-                      onChange={handleSearchCompany}
-                    />
-            </label>
-            <label>
-                    <input 
-                    id="search-input"
-                      name="search"
-                      type="text"
-                      placeholder="location.."
-                      value={searchLocation}
-                      onChange={handleSearchLocation}
-                    />
-            </label>
+            <JobSearch searchCompany={searchCompany} searchPosition={searchPosition} searchLocation={searchLocation} setSearchCompany={setSearchCompany} setSearchLocation={setSearchLocation} setSearchPosition={setSearchPosition} handleSearchCompany={handleSearchCompany} handleSearchPosition={handleSearchPosition} handleSearchLocation={handleSearchLocation}/>
+            
             <div className="job-list"> 
                 {
                     jobDisplay.map(job => {

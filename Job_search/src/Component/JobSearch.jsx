@@ -1,51 +1,59 @@
-import React, { useState } from "react";
- 
+import React from "react"
 
 
-function JobSearch(){
-
-const [currentSearch, setCurrentSearch] = useState("");
-
-function HandleSubmit(event){
-    event.preventDefault();
+function JobSearch({searchCompany,searchPosition,searchLocation,setSearchCompany,setSearchLocation,setSearchPosition,handleSearchCompany, handleSearchPosition,handleSearchLocation}) {
     
+    function handleSearchCompany (e) {
+        setSearchCompany(e.target.value)
+        setSearchLocation('')
+        setSearchPosition('')
+    }
+    function handleSearchPosition (e) {
+        setSearchPosition(e.target.value)
+        setSearchCompany('')
+        setSearchLocation('')
+    }
+    function handleSearchLocation (e) {
+        setSearchLocation(e.target.value)
+        setSearchCompany('')
+        setSearchPosition('')
+    }
    
+return( 
+<> 
+<label>
+                    <input 
+                    id="search-input"
+                      name="search"
+                      type="text"
+                      placeholder="Search position"
+                      value={searchPosition}
+                      onChange={handleSearchPosition}
+                    />
+            </label>
+            <label>
+                    <input 
+                    id="search-input"
+                      name="search"
+                      type="text"
+                      placeholder="Search company"
+                      value={searchCompany}
+                      onChange={handleSearchCompany}
+                    />
+            </label>
+            <label>
+                    <input 
+                    id="search-input"
+                      name="search"
+                      type="text"
+                      placeholder="Search location"
+                      value={searchLocation}
+                      onChange={handleSearchLocation}
+                    />
+            </label>
 
-};
 
-return (
- <label className="searchtab" onSubmit={HandleSubmit}>
-     <input
-     type="text"
-     id="search"
-     placeholder="search Company"
-     value={currentSearch}
-     onChange={(e)=>setCurrentSearch(e.target.value)}
-     />
-    
-    <button type="submit">🔍Search🔎️</button>
+</>
 
-    <input
-     type="text"
-     id="search"
-     placeholder="search Position "
-     value={currentSearch}
-     onChange={(e)=>setCurrentSearch(e.target.value)}
-     />
-    
-    <button type="submit">🔍Search🔎️</button>
-
-    <input
-     type="text"
-     id="search"
-     placeholder="search Location"
-     value={currentSearch}
-     onChange={(e)=>setCurrentSearch(e.target.value)}
-     />
-    
-    <button type="submit">🔍Search🔎️</button>
-
- </label>
-);
-}
+)}
 export default JobSearch;
