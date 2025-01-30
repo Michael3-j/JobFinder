@@ -7,7 +7,7 @@ import React, { useState } from "react";
         email: "",
     })
 
-    //This logic will Handle input changes
+    //This logic will handle input changes
     const handleChange = (e) => {
         const { name, value} = e.target;
         setFormData((prevData) => ({
@@ -15,6 +15,12 @@ import React, { useState } from "react";
             [name]: value; 
         }))
     }
+    // This logit will handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        submitForm(formData);
+    }
+
 
 
     return (
