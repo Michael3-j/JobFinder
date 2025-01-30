@@ -1,5 +1,6 @@
-import JobList from "./JobList";
+import JobList from "./components/JobList"
 import WatchList from "./components/WatchList";
+import ApplicationForm from "./components/ApplicationForm"
 import { useState } from "react";
 
 function App() {
