@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 
- function ApplicationForm() {
+ function ApplicationForm({jobApplied}) {
   const {submitForm, setFormData,formData} = useOutletContext();
   const [applied, setApplied] = useState([])
   
@@ -20,16 +20,31 @@ import { useOutletContext } from "react-router-dom";
         e.preventDefault();
         setFormData((prevData) => [...prevData, applied])
         submitForm(formData);
-        // console.log(applied)
+        console.log(applied)
     }
-
+console.log(jobApplied)
 
 
     return (
         <div>
-           
             <h2>Application Form</h2>             
                 <form onSubmit={handleSubmit}>
+                    <label>Company Name: 
+                      <input 
+                      type="text"
+                      readOnly
+                      value={jobApplied.company}
+                      />
+                    </label>
+
+                    <label>Position : 
+                      <input 
+                      type="text"
+                      readOnly
+                      value={jobApplied.position}
+                      />
+                    </label>
+
                     <label>First Name: 
                     <input 
                       type="text"
