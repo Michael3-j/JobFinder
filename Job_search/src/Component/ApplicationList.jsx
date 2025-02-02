@@ -10,7 +10,7 @@ function ApplicationList() {
             ) : (
                 <ul>
                     {formData.map((app, index) => (
-                        <li key={`${index}-`}>
+                        <li key={`${index}-${app.company}`}>
                             <h2>{app.company}</h2>
                             <h4>{ app.position }</h4>
                             <p>FirstName : {app.firstName}</p>
