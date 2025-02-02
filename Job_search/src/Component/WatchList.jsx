@@ -37,8 +37,8 @@ function WatchList(){
                             <p>Maximum Salary:{job.salary_max}</p>
                             <br/>
                             <p>Minimum Salary: {job.salary_min}</p>
-                            <button onClick={() => removeFromWatchlist(job.id)}>✖</button>
-                            <button onClick={()=> onApply(job)}>Apply💼</button>
+                            <button className ="removeButton" onClick={() => removeFromWatchlist(job.id)}>✖</button>
+                            <button className="applyButton"  onClick={()=> onApply(job)}>Apply💼</button>
                         </div>
                     ) )}
                 </div>
