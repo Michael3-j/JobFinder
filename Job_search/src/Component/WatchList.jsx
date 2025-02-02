@@ -1,6 +1,9 @@
 import React from "react";
+import { useOutletContext } from "react-router-dom";
 
-function WatchList({watchList, setWatchList}){
+function WatchList(){
+    const {watchList, setWatchList} = useOutletContext()
+
     const removeFromWatchlist = (jobId) => {
         setWatchList((prevList) => prevList.filter((job) => job.id !== jobId));
       };
