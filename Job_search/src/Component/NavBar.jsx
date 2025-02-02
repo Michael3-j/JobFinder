@@ -8,6 +8,9 @@ export default function NavBar () {
             <NavLink to="/watch-list">
                 WatchList
             </NavLink>
+            <NavLink to="/applied">
+                Applied
+            </NavLink>
         </nav>
     )
 }
