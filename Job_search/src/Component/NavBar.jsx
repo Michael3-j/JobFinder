@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom"
 export default function NavBar () {
     return (
         <nav>
-            <NavLink to="/">
+            <NavLink className={HomeRout} to="/">
                 Home
             </NavLink>
-            <NavLink to="/watch-list">
+            <NavLink className={WatchRout} to="/watch-list">
                 WatchList
             </NavLink>
-            <NavLink to="/applied">
+            <NavLink className={AppliedRout} to="/applied">
                 Applied
             </NavLink>
         </nav>
