@@ -1,15 +1,35 @@
-import JobList from "./JobList";
-import WatchList from "./components/WatchList";
-import { useState } from "react";
+import NavBar from "./Component/NavBar";
+import { useState,useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
 function App() {
+  const [jobs, setJobs] = useState([])
   const [watchList, setWatchList] = useState([]);
+  const [ formData, setFormData] = useState([])
+
+  useEffect(() => {
+    fetch("https://remoteok.com/api")
+        .then(res => res.json())
+        .then(jobs => setJobs(jobs))
+  },[])
+
+  function submitForm () {
+    
+  }
 
   return ( 
     <>
-      
-      <WatchList watchList={watchList} setWatchList={setWatchList} />
-      <JobList setWatchList={setWatchList} />
+      <NavBar />
+      <Outlet 
+        context={{
+          watchList,
+          setWatchList,
+          jobs,
+          setFormData,
+          submitForm,
+          formData
+        }}
+      />
     </>
   );
 }
