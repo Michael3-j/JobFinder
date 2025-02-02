@@ -1,18 +1,15 @@
-import { useEffect,useState } from "react"
-import JobSearch from "./Component/JobSearch"
+import { useState } from "react"
+import JobSearch from "./JobSearch"
+import { useOutletContext } from "react-router-dom"
 
 
-export default function JobList ({setWatchList}) {
-    const [jobs, setJobs] = useState([])
+export default function JobList () {
+    const { jobs,setWatchList } = useOutletContext();
+    
     const [searchCompany, setSearchCompany] = useState("")
     const [searchPosition, setSearchPosition] = useState("")
     const [searchLocation, setSearchLocation] = useState("")
 
-    useEffect(() => {
-        fetch("https://remoteok.com/api")
-            .then(res => res.json())
-            .then(jobs => setJobs(jobs))
-    },[])
 
     let jobDisplay;
      if(searchCompany === "" && searchLocation === "" && searchPosition==="" )  {
@@ -55,13 +52,23 @@ export default function JobList ({setWatchList}) {
 
     return (
         <>
-            <JobSearch searchCompany={searchCompany} searchPosition={searchPosition} searchLocation={searchLocation} setSearchCompany={setSearchCompany} setSearchLocation={setSearchLocation} setSearchPosition={setSearchPosition} handleSearchCompany={handleSearchCompany} handleSearchPosition={handleSearchPosition} handleSearchLocation={handleSearchLocation}/>
+            <JobSearch 
+                searchCompany={searchCompany} 
+                searchPosition={searchPosition} 
+                searchLocation={searchLocation} 
+                setSearchCompany={setSearchCompany} 
+                setSearchLocation={setSearchLocation} 
+                setSearchPosition={setSearchPosition} 
+                handleSearchCompany={handleSearchCompany} 
+                handleSearchPosition={handleSearchPosition} 
+                handleSearchLocation={handleSearchLocation}
+            />
             
             <div className="job-list"> 
                 {
                     jobDisplay.map(job => {
                         return (
-                                <div key={ job.id } className="job">
+                                <div key={`${job.company}-${job.id}`} className="job">
                                 <img
                                     src={ job.company_logo }
                                     alt="logo"
