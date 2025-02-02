@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 export default function NavBar () {
     return (
-        <nav>
+        <nav className="navbar" >
             <NavLink to="/">
                 Home
             </NavLink>
