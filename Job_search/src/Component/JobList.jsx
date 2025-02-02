@@ -85,7 +85,7 @@ export default function JobList () {
                                     .map(tag => <p key={tag}>{ tag },</p>)    
                                 }</div>
                                 <p>Find out more <a href={ job.url}>Here!</a></p>
-                                <button className="button" onClick={() => setWatchList((prevList)=>[...prevList,job])}>Watchlist➕</button>
+                                <button className="watchlistButton" onClick={() => setWatchList((prevList)=>[...prevList,job])}>Watchlist➕</button>
                             </div>
                             
                         )
