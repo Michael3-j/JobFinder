@@ -49,7 +49,7 @@ function WatchList(){
             }
         </div>
         ):
-            <ApplicationForm jobApplied={jobApplied}/>
+            <ApplicationForm jobApplied={jobApplied} setIsShown={setIsShown} />
         }
     </>
    )
