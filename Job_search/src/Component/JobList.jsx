@@ -1,17 +1,20 @@
-import { useEffect,useState } from "react"
+import { useState } from "react"
+import JobSearch from "./JobSearch"
+import { useOutletContext } from "react-router-dom"
 
 
-export default function JobList ({setWatchList}) {
-    const [jobs, setJobs] = useState([])
+export default function JobList () {
+    const { jobs,setWatchList } = useOutletContext();
+    
     const [searchCompany, setSearchCompany] = useState("")
     const [searchPosition, setSearchPosition] = useState("")
     const [searchLocation, setSearchLocation] = useState("")
 
-    useEffect(() => {
-        fetch("https://remoteok.com/api")
-            .then(res => res.json())
-            .then(jobs => setJobs(jobs))
-    },[])
+    // useEffect(() => {
+    //     fetch("https://remoteok.com/api")
+    //         .then(res => res.json())
+    //         .then(jobs => setJobs(jobs))
+    // },[])
 
     let jobDisplay;
      if(searchCompany === "" && searchLocation === "" && searchPosition==="" )  {
@@ -54,36 +57,18 @@ export default function JobList ({setWatchList}) {
 
     return (
         <>
-            <label>
-                    <input 
-                    id="search-input"
-                      name="search"
-                      type="text"
-                      placeholder="position..."
-                      value={searchPosition}
-                      onChange={handleSearchPosition}
-                    />
-            </label>
-            <label>
-                    <input 
-                    id="search-input"
-                      name="search"
-                      type="text"
-                      placeholder="company..."
-                      value={searchCompany}
-                      onChange={handleSearchCompany}
-                    />
-            </label>
-            <label>
-                    <input 
-                    id="search-input"
-                      name="search"
-                      type="text"
-                      placeholder="location.."
-                      value={searchLocation}
-                      onChange={handleSearchLocation}
-                    />
-            </label>
+            <JobSearch 
+                searchCompany={searchCompany} 
+                searchPosition={searchPosition} 
+                searchLocation={searchLocation} 
+                setSearchCompany={setSearchCompany} 
+                setSearchLocation={setSearchLocation} 
+                setSearchPosition={setSearchPosition} 
+                handleSearchCompany={handleSearchCompany} 
+                handleSearchPosition={handleSearchPosition} 
+                handleSearchLocation={handleSearchLocation}
+            />
+            
             <div className="job-list"> 
                 {
                     jobDisplay.map(job => {
