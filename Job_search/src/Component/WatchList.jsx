@@ -3,9 +3,9 @@ import ApplicationForm from "./ApplicationForm";
 
 import { useOutletContext } from "react-router-dom";
 
-function WatchList(){
-    const {watchList, setWatchList} = useOutletContext()
 
+function WatchList({watchList, setWatchList}){
+    const {watchList, setWatchList} = useOutletContext()
     const removeFromWatchlist = (jobId) => {
         setWatchList((prevList) => prevList.filter((job) => job.id !== jobId));
       };
