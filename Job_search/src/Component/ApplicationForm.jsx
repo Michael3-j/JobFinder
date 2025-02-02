@@ -1,38 +1,40 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 
- function ApplicationForm({ submitForm }) {
-    const [ formData, setFormData] = useState({
-        firstName: "",
-        secondName: "",
-        email: ""
-    })
+ function ApplicationForm() {
+  const {submitForm, setFormData,formData} = useOutletContext();
+  const [applied, setApplied] = useState([])
+  
 
     //This logic will handle input changes
     const handleChange = (e) => {
         const { name, value} = e.target;
-        setFormData((prevData) => ({
+        setApplied((prevData) => ({
             ...prevData,
             [name]: value
-        }))
+    }))
     }
     // This login will handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+        setFormData((prevData) => [...prevData, applied])
         submitForm(formData);
+        // console.log(applied)
     }
 
 
 
     return (
         <div>
-            <h2>Application Form</h2>
+           
+            <h2>Application Form</h2>             
                 <form onSubmit={handleSubmit}>
                     <label>First Name: 
                     <input 
                       type="text"
                       name="firstName"
-                      value={formData.name}
+                      value={formData.firstName}
                       onChange={handleChange}
                     />
                     </label>
@@ -43,7 +45,7 @@ import React, { useState } from "react";
                     <input
                       type="text"
                       name="secondName"
-                      value={formData}
+                      value={formData.secondName}
                       onChange={handleChange} />
                     </label>
 

@@ -10,11 +10,6 @@ export default function JobList () {
     const [searchPosition, setSearchPosition] = useState("")
     const [searchLocation, setSearchLocation] = useState("")
 
-    // useEffect(() => {
-    //     fetch("https://remoteok.com/api")
-    //         .then(res => res.json())
-    //         .then(jobs => setJobs(jobs))
-    // },[])
 
     let jobDisplay;
      if(searchCompany === "" && searchLocation === "" && searchPosition==="" )  {
@@ -73,7 +68,7 @@ export default function JobList () {
                 {
                     jobDisplay.map(job => {
                         return (
-                                <div key={ job.id } className="job">
+                                <div key={`${job.company}-${job.id}`} className="job">
                                 <img
                                     src={ job.company_logo }
                                     alt="logo"
