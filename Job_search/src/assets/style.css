@@ -115,13 +115,36 @@ body{
   }
   
   .navbar a.active { 
-    background-color: #007bff; 
+    background-color: gray; 
   }
   .removeButton {
+    background-color: crimson;
+    color: white;
+    padding: 17px 40px;
+    border-radius: 10px;
+    border: 0;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    cursor:grab;
+}
+.removeButton:hover{
     background-color: red;
 }
+
+
 .applyButton {
-    background-color: green;
+    background-color: forestgreen;
+    color: white;
+    padding: 17px 40px;
+    border-radius: 10px;
+    border: 0;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.applyButton:hover {
+    background-color: limegreen;
 }
 .job-list {
     display: grid;
@@ -139,8 +162,8 @@ body{
     gap: 20px;
 }
 .watchlistButton {
-    background-color: blue;
-    color: #f4f4f4;
+    background-color:dodgerblue;
+    color: white;
     padding: 17px 40px;
     border-radius: 10px;
     border: 0;
@@ -149,5 +172,5 @@ body{
     transition: all 0.3s ease;
 }
 .watchlistButton:hover{
-    background-color: #007bff;
+    background-color:royalblue;
 }
