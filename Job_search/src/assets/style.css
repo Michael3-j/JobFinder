@@ -221,3 +221,47 @@ body{
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-style: italic;
 }
+.applicationformcontainer{
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px; 
+    margin: 20px auto; 
+}
+.applicationform{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.forminput{
+    display: flex;
+    flex-direction: column;
+}
+.forminput label{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.forminput input[type="text"],
+.forminput input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+}
+.submitbutton{
+    background-color: brown;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.submitbutton:hover{
+    background-color: chocolate;
+}

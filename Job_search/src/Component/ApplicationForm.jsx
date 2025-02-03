@@ -32,9 +32,10 @@ import { useOutletContext } from "react-router-dom";
 
 
     return (
-        <div>
+        <div className="applicationformcontainer" >
             <h2>Application Form</h2>             
-                <form onSubmit={handleSubmit}>
+                <form className="applicationform" onSubmit={handleSubmit}>
+                    <div className="forminput">
                     <label>Company Name: 
                       <input 
                       type="text"
@@ -43,7 +44,9 @@ import { useOutletContext } from "react-router-dom";
                       value={jobApplied.company}
                       />
                     </label>
+                    </div>
 
+                    <div className="forminput">
                     <label>Position : 
                       <input 
                       type="text"
@@ -52,8 +55,10 @@ import { useOutletContext } from "react-router-dom";
                       value={jobApplied.position}
                       />
                     </label>
+                    </div>
 
-                    <label>First Name: 
+                   <div className="forminput">
+                   <label>First Name: 
                     <input 
                       type="text"
                       name="firstName"
@@ -61,17 +66,20 @@ import { useOutletContext } from "react-router-dom";
                       onChange={handleChange}
                     />
                     </label>
+                   </div>
 
-                    <br />
 
-                    <label>Second Name
+                    <div className="forminput" >
+                    <label>Second Name:
                     <input
                       type="text"
                       name="secondName"
                       value={formData.secondName}
                       onChange={handleChange} />
                     </label>
+                    </div>
 
+                    <div className="forminput">
                     <label> Email: 
                     <input
                       type="email"
@@ -80,10 +88,11 @@ import { useOutletContext } from "react-router-dom";
                       onChange={handleChange}
                     />
                     </label>
+                    </div>
 
                     <br />
 
-                    <button type="submit">Submit</button>
+                    <button className="submitbutton" type="submit">Submit</button>
                 </form>
         </div>
     )
