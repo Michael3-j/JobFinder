@@ -91,6 +91,11 @@ These are the technologies and their respective functionalities used in developi
 ## Contanct Information
 
 Micheal Njoronge: +254 705 645 320
+
 Stephen Maina: +254 726 054 748
+
 Edmund Kiama: +254 710 228 149
+
 Eddy Mwaniki: +254 718 884 944
+
+Derrick Dipondo: +254 723 324 305
