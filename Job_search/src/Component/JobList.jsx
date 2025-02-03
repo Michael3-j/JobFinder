@@ -6,62 +6,36 @@ import { useOutletContext } from "react-router-dom"
 export default function JobList () {
     const { jobs,setWatchList } = useOutletContext();
     
-    const [searchCompany, setSearchCompany] = useState("")
-    const [searchPosition, setSearchPosition] = useState("")
-    const [searchLocation, setSearchLocation] = useState("")
+    const [search, setSearch] = useState("")
 
 
     let jobDisplay;
-     if(searchCompany === "" && searchLocation === "" && searchPosition==="" )  {
+     if(search === "" )  {
         jobDisplay = jobs.slice(1)
      }else {
-        if (searchCompany !== ""){
             jobDisplay = jobs.slice(1).filter(job => {
-                let toBeSearchedJob = job.company.toLowerCase().trim()
-                return toBeSearchedJob.includes(searchCompany.toLowerCase().trim()) 
+                const lowerSearch = search.toLowerCase().trim();
+                
+                const companySearch = job.company.toLowerCase().includes(lowerSearch)
+                const positionSearch = job.position.toLowerCase().includes(lowerSearch)
+                const locationSearch = job.location.toLowerCase().includes(lowerSearch)
+
+                return companySearch || positionSearch || locationSearch
+                       
             })
-        } else if (searchPosition !== "") {
-            jobDisplay = jobs.slice(1).filter(job => {
-                let toBeSearchedJob = job.position.toLowerCase().trim()
-                return toBeSearchedJob.includes(searchPosition.toLowerCase().trim()) 
-            })
-        }  else if (searchLocation !== "") {
-            jobDisplay = jobs.slice(1).filter(job => {
-                let toBeSearchedJob = job.location.toLowerCase().trim()
-                return toBeSearchedJob.includes(searchLocation.toLowerCase().trim()) 
-            })
-        }
      }
 
-    function handleSearchCompany (e) {
-        setSearchCompany(e.target.value)
-        setSearchLocation('')
-        setSearchPosition('')
-    }
-    function handleSearchPosition (e) {
-        setSearchPosition(e.target.value)
-        setSearchCompany('')
-        setSearchLocation('')
-    }
-    function handleSearchLocation (e) {
-        setSearchLocation(e.target.value)
-        setSearchCompany('')
-        setSearchPosition('')
+    function handleSearch (e) {
+        setSearch(e.target.value)
     }
    
 
     return (
         <>
             <JobSearch 
-                searchCompany={searchCompany} 
-                searchPosition={searchPosition} 
-                searchLocation={searchLocation} 
-                setSearchCompany={setSearchCompany} 
-                setSearchLocation={setSearchLocation} 
-                setSearchPosition={setSearchPosition} 
-                handleSearchCompany={handleSearchCompany} 
-                handleSearchPosition={handleSearchPosition} 
-                handleSearchLocation={handleSearchLocation}
+                search={search} 
+                setSearch={setSearch} 
+                handleSearch={handleSearch} 
             />
             
             <div className="job-list"> 
