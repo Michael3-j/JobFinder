@@ -6,7 +6,8 @@ import { useOutletContext } from "react-router-dom";
 function WatchList(){
     const {watchList, setWatchList} = useOutletContext()
     const [isShown, setIsShown] = useState(true)
-    // const [applications, setApplications] = useState([{}])
+    //const [applications, setApplications] = useState([])
+    const [jobApplied, setJobApplied] =useState()
 
     const removeFromWatchlist = (jobId) => {
         setWatchList((prevList) => prevList.filter((job) => job.id !== jobId));
@@ -14,18 +15,19 @@ function WatchList(){
 
     function onApply (job) {
         setIsShown(shown => !shown)
+        setJobApplied(job)
 
-        // setApplications(prevApplications => [...prevApplications, job])
+        //setApplications(prevApplications => [...prevApplications, job])
 0
     }
    return(
     <>
         {isShown? (
-        <div className="theWatchList">
+        <div>
             <h1>YOUR WATCHLIST</h1>
             {watchList.length === 0 ? (<p>Watchlist is empty</p>) :
             (
-                <div>
+                <div className="thewatchlist" >
                     {watchList.map((job) =>(
                         <div key={job.id} className="job">
                             <p>{job.position}</p>
@@ -47,7 +49,7 @@ function WatchList(){
             }
         </div>
         ):
-            <ApplicationForm />
+            <ApplicationForm jobApplied={jobApplied} setIsShown={setIsShown} />
         }
     </>
    )

@@ -1,6 +1,7 @@
 import NavBar from "./Component/NavBar";
 import { useState,useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import Header from "./Component/Header";
 
 function App() {
   const [jobs, setJobs] = useState([])
@@ -19,6 +20,7 @@ function App() {
 
   return ( 
     <>
+      <Header />
       <NavBar />
       <Outlet 
         context={{

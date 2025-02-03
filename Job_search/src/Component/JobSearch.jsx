@@ -20,7 +20,8 @@ function JobSearch({searchCompany,searchPosition,searchLocation,setSearchCompany
     }
    
 return( 
-<> 
+<div className="searchnavbar" >
+  <span className="searchtitle">Find your preferred job:</span>
 <label>
                     <input 
                     id="search-input"
@@ -51,9 +52,11 @@ return(
                       onChange={handleSearchLocation}
                     />
             </label>
+</div>
 
 
-</>
+
+
 
 )}
 export default JobSearch;

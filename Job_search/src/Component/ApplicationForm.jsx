@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 
- function ApplicationForm() {
+ function ApplicationForm({jobApplied, setIsShown}) {
   const {submitForm, setFormData,formData} = useOutletContext();
   const [applied, setApplied] = useState([])
   
@@ -18,19 +18,47 @@ import { useOutletContext } from "react-router-dom";
     // This login will handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormData((prevData) => [...prevData, applied])
-        submitForm(formData);
-        // console.log(applied)
+        const newFormData = {
+          company: jobApplied.company,
+          position: jobApplied.position,
+          ...applied
+        }
+
+        setFormData((prevData) => [...prevData, newFormData])
+        submitForm(newFormData);
+        setIsShown(shown => !shown)
+        
     }
 
 
-
     return (
-        <div>
-           
+        <div className="applicationformcontainer" >
             <h2>Application Form</h2>             
-                <form onSubmit={handleSubmit}>
-                    <label>First Name: 
+                <form className="applicationform" onSubmit={handleSubmit}>
+                    <div className="forminput">
+                    <label>Company Name: 
+                      <input 
+                      type="text"
+                      readOnly
+                      name="company"
+                      value={jobApplied.company}
+                      />
+                    </label>
+                    </div>
+
+                    <div className="forminput">
+                    <label>Position : 
+                      <input 
+                      type="text"
+                      name="position"
+                      readOnly
+                      value={jobApplied.position}
+                      />
+                    </label>
+                    </div>
+
+                   <div className="forminput">
+                   <label>First Name: 
                     <input 
                       type="text"
                       name="firstName"
@@ -38,17 +66,20 @@ import { useOutletContext } from "react-router-dom";
                       onChange={handleChange}
                     />
                     </label>
+                   </div>
 
-                    <br />
 
-                    <label>Second Name
+                    <div className="forminput" >
+                    <label>Second Name:
                     <input
                       type="text"
                       name="secondName"
                       value={formData.secondName}
                       onChange={handleChange} />
                     </label>
+                    </div>
 
+                    <div className="forminput">
                     <label> Email: 
                     <input
                       type="email"
@@ -57,10 +88,11 @@ import { useOutletContext } from "react-router-dom";
                       onChange={handleChange}
                     />
                     </label>
+                    </div>
 
                     <br />
 
-                    <button type="submit">Submit</button>
+                    <button className="submitbutton" type="submit">Submit</button>
                 </form>
         </div>
     )
