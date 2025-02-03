@@ -174,3 +174,31 @@ body{
 .watchlistButton:hover{
     background-color:royalblue;
 }
+.searchnavbar{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px; 
+  padding: 10px; 
+  background-color: orange; 
+  border-radius: 5px; 
+  max-width: 1000px; 
+  margin: 0 auto; 
+}
+.searchnavbar label{
+    display: flex;
+  flex-direction: column;
+  margin: 0 10px; 
+}
+.searchnavbar input[type="text"]{
+    padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 200px; 
+}
+.searchtitle{
+    font-size: 1.3em; 
+    color: #333; 
+    margin-right: 10px; 
+}
