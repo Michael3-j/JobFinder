@@ -97,11 +97,10 @@ body{
   }
 
   .navbar {
-    background-color: #333; /* Dark background for navbar */
+    background-color: #333; 
     padding: 10px;
     display: flex;
-    justify-content: space-around; /* Distribute links evenly */
-  }
+    justify-content: space-around; }
 
   .navbar a {
     color: white;
@@ -138,4 +137,17 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
+}
+.watchlistButton {
+    background-color: blue;
+    color: #f4f4f4;
+    padding: 17px 40px;
+    border-radius: 10px;
+    border: 0;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+.watchlistButton:hover{
+    background-color: #007bff;
 }
