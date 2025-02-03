@@ -203,3 +203,21 @@ body{
     color: #333; 
     margin-right: 10px; 
 }
+.header{
+  padding: 20px 0; 
+  text-align: center; 
+}
+.headercontent{
+    max-width: 960px; 
+  margin: 0 auto;
+}
+.H1{
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+.H2{
+    font-size: 1.2em;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-style: italic;
+}
