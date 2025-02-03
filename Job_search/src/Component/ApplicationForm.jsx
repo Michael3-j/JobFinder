@@ -64,6 +64,7 @@ import { useOutletContext } from "react-router-dom";
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
+                      required
                     />
                     </label>
                    </div>
@@ -74,6 +75,7 @@ import { useOutletContext } from "react-router-dom";
                     <input
                       type="text"
                       name="secondName"
+                      required
                       value={formData.secondName}
                       onChange={handleChange} />
                     </label>
@@ -84,6 +86,7 @@ import { useOutletContext } from "react-router-dom";
                     <input
                       type="email"
                       name="email"
+                      required
                       value={formData.email}
                       onChange={handleChange}
                     />
