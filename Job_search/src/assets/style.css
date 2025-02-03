@@ -265,3 +265,8 @@ body{
 .submitbutton:hover{
     background-color: chocolate;
 }
+.appliedjobs {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
