@@ -24,7 +24,8 @@ function App() {
     <>
      <WatchList watchList={watchList} setWatchList={setWatchList}/>
      <JobList setWatchList={setWatchList}/>
-     <ApplicationForm submitForm={handleFormSubmit} />
+     <ApplicationForm submitForm={handleFormSubmit}/>
+     <ApplicationList applications={applications}/>
     </>
   )
 }
