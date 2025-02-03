@@ -23,11 +23,11 @@ function WatchList(){
    return(
     <>
         {isShown? (
-        <div className="theWatchList">
+        <div>
             <h1>YOUR WATCHLIST</h1>
             {watchList.length === 0 ? (<p>Watchlist is empty</p>) :
             (
-                <div>
+                <div className="thewatchlist" >
                     {watchList.map((job) =>(
                         <div key={job.id} className="job">
                             <p>{job.position}</p>

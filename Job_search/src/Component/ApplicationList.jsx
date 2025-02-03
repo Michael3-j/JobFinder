@@ -8,7 +8,7 @@ function ApplicationList() {
             {formData.length === 0 ? (
                 <p>Applications yet to be Submitted</p>
             ) : (
-                <ul>
+                <ul className="appliedjobs">
                     {formData.map((app, index) => (
                         <li key={`${index}-${app.company}`}>
                             <h2>{app.company}</h2>
